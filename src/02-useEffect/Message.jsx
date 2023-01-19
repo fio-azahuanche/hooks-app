@@ -1,13 +1,19 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export const Message = () => {
 
     useEffect(() => {
-      console.log('Message Mounted')
-    
-      return () => {
-        console.log('Message UnMounted');
-      }
+
+        const onMouseMove = ({x,y}) =>{
+            const coords = { x,y }
+            console.log(coords);
+        }
+
+        window.addEventListener('mousemove', onMouseMove);
+
+        return () => {
+            window.removeEventListener('mousemove', onMouseMove);
+        }
     }, [])
     
 
