@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react"
-
+import { Message } from './Message'
 
 export const SimpleForm = () => {
     //hook: is a function
@@ -24,13 +24,14 @@ export const SimpleForm = () => {
 
     //useEffect: like ngOnInit in angular
     useEffect(() => {
-      console.log('useEffect called!');
+      //console.log('useEffect called!');
     }, [])
     //[] means that it only shoots once
     
     useEffect(() => {
-      console.log('email changed!');
+      //console.log('email changed!');
     }, [ email ])
+    
 
   return (
     <>
@@ -42,8 +43,8 @@ export const SimpleForm = () => {
             className="form-control"
             placeholder="Username"
             name="username"
-/*             value={ username }
- */            onChange={onInputChange}
+            value={ username }
+            onChange={onInputChange}
         />
 
         <input 
@@ -54,6 +55,9 @@ export const SimpleForm = () => {
             value={ email }
             onChange={onInputChange}
         />
+        {
+            (username === 'fio') && <Message/>
+        }
     </>
   )
 }
