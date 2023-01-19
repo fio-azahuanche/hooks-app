@@ -22,11 +22,15 @@ export const SimpleForm = () => {
         })
     }
 
-    //es como el ngOnInit en angular
+    //useEffect: like ngOnInit in angular
     useEffect(() => {
       console.log('useEffect called!');
-    })
+    }, [])
+    //[] means that it only shoots once
     
+    useEffect(() => {
+      console.log('email changed!');
+    }, [ email ])
 
   return (
     <>
