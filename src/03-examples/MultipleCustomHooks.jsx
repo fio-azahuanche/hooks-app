@@ -1,11 +1,11 @@
 import React from 'react'
+import { useCounter } from '../hooks/useCounter';
 import { useFetch } from '../hooks/useFetch'
 
 export const MultipleCustomHooks = () => {
-    const { data, isLoading, hasError } = useFetch('https://rickandmortyapi.com/api/episode');
-
-    const { name, episode } = !!data && data[6];
-
+    const { counter, increment } = useCounter(1)
+    const { data, isLoading, hasError } = useFetch(`https://rickandmortyapi.com/api/episode/`);
+    const { name, episode } = !!data && data[counter];
   return (
     <>
      <h1>Rick & Morty Episodes</h1> 
@@ -25,7 +25,7 @@ export const MultipleCustomHooks = () => {
         )
     }
 
-    <button className='btn btn-primary'>Next episode</button>
+    <button className='btn btn-primary' disabled={ counter===19 } onClick={ () => increment() }>Next episode</button>
 
     </>
   )
