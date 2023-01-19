@@ -3,9 +3,9 @@ import { useState, useEffect } from "react"
 
 
 export const SimpleForm = () => {
-    //hook: es una función
-    //useState: es un hook que crea internamente ua variable 
-    //dode podemos almacenar es estado de nuestra componente
+    //hook: is a function
+    //useState: is a hook that creates internally a variable 
+    //where we can store the state of our component
     const [formState, setformState] = useState({
         username: "fio",
         email: "fazahuanchef@gmail.com"
